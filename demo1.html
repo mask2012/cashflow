@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>axios 获取数据</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<style>
+    .job_list{}
+    .job_list li{ margin-bottom: 10px; color: #999;}
+    .job_list li p{ display: block; }
+    .job_list li strong{ font-weight: bold; color: #f00; }
+    .job_list li span{ font-weight: bold; color: #333; }
+</style>
+</head>
+<body>
+    
+    <div id="cashflow">
+        <ul class="job_list">
+            <job-item
+                v-for="item in jobList"
+                v-bind:job="item"
+                v-bind:key="item.jobName"
+            ></job-item>
+            <!-- <li v-for="item in jobList">
+                <p>职业名称：<strong>{{item.jobName}}</strong></p>
+                <p>收入：<span>{{item.jobCashIn}}</span></p>
+                <p>支出：<span>{{item.jobCashOut}}</span></p>
+                <p>单个小孩费用：<span>{{item.kidFee}}</span></p>
+                <p>贷款：<span>{{item.jobLoan}}</span></p>
+            </li> -->
+        </ul>
+    </div>
+
+    <script type="text/x-template" id="jobLiTemplate">
+        <li>
+            <p>职业名称：<strong>{{job.jobName}}</strong></p>
+            <p>收入：<span>{{job.jobCashIn}}</span></p>
+            <p>支出：<span>{{job.jobCashOut}}</span></p>
+            <p>单个小孩费用：<span>{{job.kidFee}}</span></p>
+            <p>贷款：<span>{{job.jobLoan}}</span></p>
+        </li>
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+    <script>
+
+        Vue.component('job-item',{
+            props:['job'],
+            template:'#jobLiTemplate'
+        });
+
+        var jobData=[{
+            jobName:'卡车司机',
+            jobCashIn:2300,
+            jobCashOut:1600,
+            kidFee:150,
+            jobLoan:23000,
+        },{
+            jobName:'小学老师',
+            jobCashIn:1800,
+            jobCashOut:1300,
+            kidFee:120,
+            jobLoan:13000,
+        },{
+            jobName:'飞行员',
+            jobCashIn:5800,
+            jobCashOut:3300,
+            kidFee:250,
+            jobLoan:43000,
+        }];
+
+
+        var cashflow = new Vue({
+          el: '#cashflow',
+          data: {
+            jobList: jobData
+          }
+          
+        });
+    </script>
+</body>
+</html>
