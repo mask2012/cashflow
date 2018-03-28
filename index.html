@@ -11,10 +11,12 @@
     </head>
     <body>
         
+        
+        <div class="welcome_title">welcome to cashflow!</div>
 
         <div class="swiper-container job_swiper" id="jobSwiper">
             <div class="swiper-wrapper">
-                <div class="swiper-slide">
+                <!-- <div class="swiper-slide">
                     <div class="job_title"><i class="ico_teacher"></i>小学老师1</div>
                     <ul class="job_info_list">
                         <li><span>总收入:</span><b>2,300</b></li>
@@ -22,49 +24,23 @@
                         <li><span>月现金流:</span><b>240</b></li>
                         <li><span>小孩费用:</span><b>330</b></li>
                     </ul>
-                </div>
-                <div class="swiper-slide">
-                    <div class="job_title"><i class="ico_teacher"></i>小学老师2</div>
-                    <ul class="job_info_list">
-                        <li><span>总收入:</span><b>2,300</b></li>
-                        <li><span>总支出:</span><b>2,300</b></li>
-                        <li><span>月现金流:</span><b>240</b></li>
-                        <li><span>小孩费用:</span><b>330</b></li>
-                    </ul>
-                </div>
-                <div class="swiper-slide">
-                    <div class="job_title"><i class="ico_teacher"></i>小学老师3</div>
-                    <ul class="job_info_list">
-                        <li><span>总收入:</span><b>2,300</b></li>
-                        <li><span>总支出:</span><b>2,300</b></li>
-                        <li><span>月现金流:</span><b>240</b></li>
-                        <li><span>小孩费用:</span><b>330</b></li>
-                    </ul>
-                </div>
-                <div class="swiper-slide">
-                    <div class="job_title"><i class="ico_teacher"></i>小学老师4</div>
-                    <ul class="job_info_list">
-                        <li><span>总收入:</span><b>2,300</b></li>
-                        <li><span>总支出:</span><b>2,300</b></li>
-                        <li><span>月现金流:</span><b>240</b></li>
-                        <li><span>小孩费用:</span><b>330</b></li>
-                    </ul>
-                </div>
+                </div> -->
             </div>
-            <div class="swiper-pagination job_pagination"></div>
         </div>
+
+        <div class="btn_start" id="btnStart">开始</div>
         
         
         <!--列表模版-->
         <script type="text/x-template" id="jobTemplate">
             <@ for (i=0; i<data.length; i++){ var c=data[i]; @>
                 <div class="swiper-slide">
-                    <div class="job_title"><i class="ico_teacher"></i>小学老师</div>
+                    <div class="job_title"><i class="ico_teacher"></i><@=c.jobName@></div>
                     <ul class="job_info_list">
-                        <li><span>总收入:</span><b>2,300</b></li>
-                        <li><span>总支出:</span><b>2,300</b></li>
-                        <li><span>月现金流:</span><b>240</b></li>
-                        <li><span>小孩费用:</span><b>330</b></li>
+                        <li><span>总收入:</span><b><@=c.jobCashIn@></b></li>
+                        <li><span>总支出:</span><b><@=c.jobCashOut@></b></li>
+                        <li><span>月现金流:</span><b><@=c.jobCashFlow@></b></li>
+                        <li><span>小孩费用:</span><b><@=c.jobKidFee@></b></li>
                     </ul>
                 </div>
             <@}@>
