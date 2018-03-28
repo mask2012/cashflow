@@ -19,8 +19,8 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 
 
 .job_swiper{ margin-bottom: 45px; }
-.job_swiper .swiper-slide{ background-color: #fff; border-radius: 10px; box-shadow: 0 0 3px rgba(0,0,0,.15), 0 0 8px rgba(0,0,0,.05); box-sizing: border-box; padding: 14px; margin: 20px 0; transition: all 0.3s;}
-.job_swiper .swiper-slide-active{ transform: scale(1.1); }
+.job_swiper .swiper-slide{ background-color: #f8f3f3; border-radius: 10px; box-shadow: 0 0 3px rgba(0,0,0,.15), 0 0 8px rgba(0,0,0,.05); box-sizing: border-box; padding: 14px; margin: 20px 0; transition: all 0.3s;}
+.job_swiper .swiper-slide-active{ transform: scale(1.2); background-color: #fff;}
 
 
 .job_title{ font-size: 22px;  text-align: center; margin: 7px 0 12px;}
