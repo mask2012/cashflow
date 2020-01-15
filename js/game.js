@@ -2,20 +2,28 @@
 
 	var game={
 		init:function(){
-			// this.initSwiper();
+			this.initSwiper();
 		},
 
 		initSwiper:function(){
 			var that = this;
-            var swiper = new Swiper('#jobSwiper', {
-                // threshold: 30,
+            var gameSwiper = new Swiper('#gameSwiper', {
                 direction: 'horizontal',
-                slidesPerView:2,
-                spaceBetween:27,
-                initialSlide:1,
-                centeredSlides:true,
                 loop:false,
-                autoplay:false
+                autoplay:false,
+                onSlideChangeEnd:function(slide){
+                	var nowIndex=slide.activeIndex;
+                	$('#swiperIndicator li').removeClass('on');
+                	$('#swiperIndicator li').eq(nowIndex).addClass('on');
+                }
+            });
+
+            $('#swiperIndicator li').on('tap', function(event) {
+            	event.preventDefault();
+            	var nowIndex=$(this).index();
+            	gameSwiper.slideTo(nowIndex, 230, function(){
+
+            	});
             });
 		},
 
